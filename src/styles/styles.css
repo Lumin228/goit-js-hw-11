@@ -1,0 +1,51 @@
+:root{
+    margin: 0px;
+}
+
+.search-form{
+    padding: 10px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-self: center;
+    background-color: gray;
+    border-radius: 7px;
+    position: sticky;
+    top: 0;
+}
+
+.info-item{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info{
+    display: flex;
+    
+    justify-content:space-around;
+}
+
+.photo-card{
+    max-width: 300px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 2%;
+    background-color: orange;
+    margin: 2px;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 45px;
+    justify-content: space-evenly;
+    padding: 40px;
+    
+}
+
+.is-hidden{
+    display: none;
+}

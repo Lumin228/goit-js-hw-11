@@ -17,7 +17,7 @@ refs.buttonLoad.addEventListener('click', loadMoreFunc);
 
 async function inputFunc(event) {
   event.preventDefault();
-  
+  refs.buttonLoad.classList.replace("is-hidden", "load-more");
   const formElements = event.currentTarget.elements;
   const inputValue = formElements['searchQuery'].value;
   localStorage.setItem(TXT_CACHE_LOCAL, JSON.stringify(inputValue))
@@ -31,7 +31,7 @@ async function inputFunc(event) {
     data.map(key => {
       const createImgDiv = `
         <div class="photo-card">
-          <img src="${key.previewURL}" alt="${key.user}" loading="lazy" width="285" height="250" class="image" >
+          <img src="${key.webformatURL}" alt="${key.user}" loading="lazy" width="285" height="250" class="image" >
           <div class="info">
             <p class="info-item">
               <b>Likes</b>

@@ -1,5 +1,7 @@
 import { foo } from './links';
 import Notiflix from 'notiflix';
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 const refs = {
   form: document.querySelector('form'),

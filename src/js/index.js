@@ -1,6 +1,22 @@
 import { foo } from "./links";
 
-refs = {
-    formInput: document.querySelector('form')
+const refs = {
+    form: document.querySelector('form')
 };
-console.log(refs.formInput)
+
+refs.form.addEventListener('submit', inputFunc);
+
+function inputFunc(event) {
+    event.preventDefault(); 
+    const formElements = event.currentTarget.elements;
+    const inputValue = formElements['searchQuery'].value;
+    console.log(inputValue);
+}
+
+async function loadPage(v) {
+
+}
+
+const q = "yellow+flowers";
+
+foo()

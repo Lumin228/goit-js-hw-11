@@ -37,7 +37,7 @@ async function inputFunc(event) {
     data.map(key => {
       const createImgDiv = `
         <div class="photo-card">
-        <a href="${key.largeImageURL}" class="simple"><img src="${key.webformatURL}" alt="${key.user}" loading="lazy" width="285" height="250" class="image" ></a>
+        <a href="${key.largeImageURL}" class="simple"><img src="${key.webformatURL}" alt="${key.tags}" loading="lazy" width="285" height="250" class="image" ></a>
           <div class="info">
             <p class="info-item">
               <b>Likes</b>

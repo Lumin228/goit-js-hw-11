@@ -10,9 +10,13 @@ const refs = {
 };
 
 const TXT_CACHE_LOCAL = "TXT_CAHE";
+const lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+    captionPosition: 'bottom',
+  });
 
 let i = 1;
-
 
 refs.form.addEventListener('submit', inputFunc);
 refs.buttonLoad.addEventListener('click', loadMoreFunc);
@@ -33,7 +37,7 @@ async function inputFunc(event) {
     data.map(key => {
       const createImgDiv = `
         <div class="photo-card">
-          <img src="${key.webformatURL}" alt="${key.user}" loading="lazy" width="285" height="250" class="image" >
+        <a href="${key.largeImageURL}" class="simple"><img src="${key.webformatURL}" alt="${key.user}" loading="lazy" width="285" height="250" class="image" ></a>
           <div class="info">
             <p class="info-item">
               <b>Likes</b>
@@ -57,6 +61,7 @@ async function inputFunc(event) {
       refs.imageDiv.innerHTML += createImgDiv;
       
     });
+    lightbox.refresh();
     Notiflix.Notify.success(`You've found ${localStorage.getItem(TXT_CACHE_LOCAL)}`);
   } catch (error) {
     Notiflix.Notify.failure(`Sorry, but there is no such images as ${localStorage.getItem(TXT_CACHE_LOCAL)}`);
@@ -78,7 +83,7 @@ async function loadMoreFunc() {
         data.map(key => {
           const createImgDiv = `
             <div class="photo-card">
-              <img src="${key.previewURL}" alt="${key.user}" loading="lazy" width="285" height="250" class="image" >
+            <a href="${key.largeImageURL}" class="simple"><img src="${key.webformatURL}" alt="${key.user}" loading="lazy" width="285" height="250" class="image" ></a>
               <div class="info">
                 <p class="info-item">
                   <b>Likes</b>
@@ -100,6 +105,7 @@ async function loadMoreFunc() {
             </div>`;
     
           refs.imageDiv.innerHTML += createImgDiv;
+          lightbox.refresh();
           console.log(i)
         });
       } catch (error) {

@@ -64,6 +64,7 @@ async function inputFunc(event) {
     lightbox.refresh();
     Notiflix.Notify.success(`You've found ${localStorage.getItem(TXT_CACHE_LOCAL)}`);
   } catch (error) {
+    refs.buttonLoad.classList.replace("load-more", "is-hidden")
     Notiflix.Notify.failure(`Sorry, but there is no such images as ${localStorage.getItem(TXT_CACHE_LOCAL)}`);
   }
 }
@@ -77,7 +78,8 @@ async function loadMoreFunc() {
         const data = await foo(localStorage.getItem(TXT_CACHE_LOCAL), i);
         Notiflix.Notify.success(`You've loaded ${localStorage.getItem(TXT_CACHE_LOCAL)} in count of ${data.length}`);
         if (data.length == 0) {
-          console.log("no more images")
+            refs.buttonLoad.classList.replace("load-more", "is-hidden");
+            Notiflix.Notify.failure(`You've loaded all images`);
         }
     
         data.map(key => {
